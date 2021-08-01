@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.IResveDaoMebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+	<select id="selectOneResve" resultType="resveDto">
+		SELECT * FROM RESVE WHERE RESVE_CODE = #{resveCode}
+	</select>
+
+	<insert id="insertResve">
+		INSERT INTO RESVE
+		(RESVE_CODE,MBER_CODE,VOCHR_CODE,RESVE_PC,RESVE_DT)
+		VALUES(#{resveCode}, #{mberCode}, #{vochrCode}, #{resvePc}, SYSDATE)
+	</insert>
+	
+	<delete id="deleteResve">
+		DELETE FROM RESVE WHERE RESVE_CODE = #{resveCode}
+	</delete>
+</mapper>
